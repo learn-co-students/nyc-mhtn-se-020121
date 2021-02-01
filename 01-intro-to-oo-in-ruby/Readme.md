@@ -1,6 +1,9 @@
 # Intro to Object Oriented Programming in Ruby
 
 ## Housekeeping:
+- Every phase is different and every instructor manages it differently
+    - Phase 1 is for you to figure out what works for you
+    - I do not want you to waste time being anxious or overwhelmed because EVERYTHING you need to do so I overplan
 - Patricipation: this is an interactive class
 - !Do not code along!
 - Questions:

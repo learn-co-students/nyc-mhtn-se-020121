@@ -46,8 +46,8 @@ Transform `names` into a string with all the names separated by a comma.
 ## Create a class and instantiate an instance of the class 
 * Creating hash for dogs with dog's type and breed:
     ```ruby
-    dog1 = {"name": "ruby", "breed": "maltese"}
-    dog2 = {"namne": "sora", "breed": "lab-pit"}
+    dog1 = {"name": "bart", "breed": "maltese"}
+    dog2 = {"namne": "daria", "breed": "big dog"}
     dog3 = {"name": "lilo", "breed": "fluffy"}
     ```
 * Why don’t we want to do this? 

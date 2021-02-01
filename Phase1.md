@@ -64,8 +64,8 @@ In order to not leave you feeling tricked, I will gradually fill out this table 
 </tr>
 <tr>
     <td style="text-align:center" width="150px"> <code>User.new() </code> </td>
-    <td style="text-align:center" width="150px"> <code>User.new("Hasibul")</code> </td>
-    <td style="text-align:center" width="150px"> <code>User.new(username: "Hasibul")</code>  </td>
+    <td style="text-align:center" width="150px"> <code>User.new("Michelle")</code> </td>
+    <td style="text-align:center" width="150px"> <code>User.new(username: "Michelle")</code>  </td>
 </tr>
 <tr>
     <td style="text-align:center" width="150px"> - </td>
@@ -80,12 +80,12 @@ In order to not leave you feeling tricked, I will gradually fill out this table 
 <tr>
     <td style="text-align:center" width="150px"> - </td>
     <td style="text-align:center" width="150px"> <code>User#appointments</code>, that needs to be written out manually</td>
-    <td style="text-align:center" width="150px"> <code>?</code>  </td>
+    <td style="text-align:center" width="150px"> <code> has_many</code>  </td>
 </tr>
 <tr>
     <td style="text-align:center" width="150px"> - </td>
     <td style="text-align:center" width="150px"> <code>User#doctors</code>, that needs to be written out manually</td>
-    <td style="text-align:center" width="150px"> <code>?</code>  </td>
+    <td style="text-align:center" width="150px"> <code>has_many, through:</code>  </td>
 </tr>
 </table>
 

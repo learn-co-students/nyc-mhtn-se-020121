@@ -89,8 +89,6 @@ In order to not leave you feeling tricked, I will gradually fill out this table 
 </tr>
 </table>
 
-Have a question? [Ask us!](https://flatiron-school.slack.com/archives/C018TV7P7UG)
-
 ---
 
 ## Week 1

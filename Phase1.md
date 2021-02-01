@@ -116,7 +116,7 @@ These are the skills you need to prioritize when studying this week. Please take
    - How do I write a class in Ruby?
    - What is a class and instance? 
    - How do I create a new instance of the class?
-   - How can I hack Ruby classes (e.g. String)? Why would I? 
+   - How can I hack Ruby classes (e.g. String)? Why would I? Why should I not? 
 
 #### Post-Lecture Homework: 
 - In the `housemate.rb` create a `Housemate` class and add four behaviors to its instances; in the same file, create two instances of the Housemate class and check using `binding.pry` if they do have the behaviors;

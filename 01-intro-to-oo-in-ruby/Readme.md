@@ -23,7 +23,7 @@
 - [ ] Add behavior to the instance of a class
 - [ ] Explain the difference between a class and an instance
 - [ ] Extend a String class
-- [ ] Explain when to use `binding.pry`
+- [ ] Explain/demonstrate when to use `binding.pry`
 
 ## Define object in programming domain
 * "Everything in Ruby is an object." 
@@ -130,3 +130,11 @@ end
 
 "hi".excited
 ```
+
+
+<!-- 
+- What are objects in Ruby? What is "behavior" and "data"? 
+- How do I write a class in Ruby? 
+- What is a class and instance?    
+- How do I create a new instance of the class?  
+- How can I hack Ruby classes (e.g. String)? Why would I? Why should I not? -->

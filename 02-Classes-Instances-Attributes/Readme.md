@@ -52,7 +52,7 @@ this is what might be happening:
     * Getter method allows us to only read the value
     ```ruby
     def fav_snack
-    @fav_snack
+        @fav_snack
     end
     ```
 

@@ -78,12 +78,14 @@ this is what might be happening:
 Our dog can already bark, now let's make it spin. 
  <img src="dog-rb-3.png" height="300px" width="auto" style="display:inline"  alt="an ikea-like manual">
 
-<!-- In this Phase we will be talking about: -->
-- local_vars
-- @instance_var
-- @@class_vars
+**note:** In this Phase we will be talking about:
+- local_vars - these are locally-scoped
+- @instance_var - these are carried by the instance
+- @@class_vars - these are like storage units for the whole class
 - CONSTS
-- $global_vars
+- $global_vars - global scope!
+
+[Read more about Ruby variables in this blog post](https://medium.com/swlh/hitchhikers-guide-to-ruby-variables-1b4cf83d540c)
 
 ## Homework
 

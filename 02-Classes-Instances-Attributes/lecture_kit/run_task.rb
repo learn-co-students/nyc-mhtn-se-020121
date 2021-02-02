@@ -36,5 +36,7 @@ lilo_hash = {name: "Lilo"}
 bart = Dog.new("Bart")
 lilo = Dog.new("Lilo")
 
+# emoji shortcut: ctrl + command + space
+
 binding.pry
 0

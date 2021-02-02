@@ -78,7 +78,10 @@ this is what might be happening:
 Our dog can already bark, now let's make it spin. 
  <img src="dog-rb-3.png" height="300px" width="auto" style="display:inline"  alt="an ikea-like manual">
 
-**note:** In this Phase we will be talking about:
+---
+## Ruby variables 
+
+In this Phase we will be talking about:
 - local_vars - these are locally-scoped
 - @instance_var - these are carried by the instance
 - @@class_vars - these are like storage units for the whole class

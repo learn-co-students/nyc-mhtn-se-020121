@@ -68,6 +68,7 @@ this is what might be happening:
         * if you want to have an opportunity to change the attribute's value -> setter/writer method
         * if you want to have both an access and an ability to change its value -> both
 
+**TASK**: Add two new attributes to a Dog instance: `breed` and `attitude`. The `attitude` parameter should default to "jolly" if given no value upon initialization. Next, decide on whether a user should be able to read or also change the values of these attributes after they have been created and write appropriate methods.
 
 ## Use `attr_` macros instead of reader and writer methods
 * To read attributes: `attr_reader`

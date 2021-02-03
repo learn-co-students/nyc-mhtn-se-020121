@@ -2,15 +2,15 @@
 
 ## LGs:
 - [ ] Revise what we did yesterday: create a class and an instance with data (attributes) and instance methods (a behavior)
-- [ ] Practice reading existing code base
+- [ ] Practice reading existing codebase
 - [ ] Create class methods
+- [ ] Explain the difference between `variable`, `@variable` and `@@variable`
 - [ ] Check what `self` is
 - [ ] Call methods on the implicit or explicit `self`
-- [ ] Explain the difference between `variable`, `@variable` and `@@variable`
 - [ ] Learn one programming joke, see an example of recursion and stack overflow
 
 ## Practice reading existing code base
-1. Read code in `run.rb` and answer this question:
+1. Read code in `run.rb` and answer these questions:
 - what are `attr_reader` and `attr_accessor` doing?
 - how many instance variables is every instance holding? 
 - how many instance methods each instance can perform?

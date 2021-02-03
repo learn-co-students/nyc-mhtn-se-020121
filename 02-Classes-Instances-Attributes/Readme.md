@@ -52,7 +52,7 @@ this is what might be happening:
     * Getter method allows us to only read the value
     ```ruby
     def fav_snack
-    @fav_snack
+        @fav_snack
     end
     ```
 
@@ -68,6 +68,7 @@ this is what might be happening:
         * if you want to have an opportunity to change the attribute's value -> setter/writer method
         * if you want to have both an access and an ability to change its value -> both
 
+**TASK**: Add two new attributes to a Dog instance: `breed` and `attitude`. The `attitude` parameter should default to "jolly" if given no value upon initialization. Next, decide on whether a user should be able to read or also change the values of these attributes after they have been created and write appropriate methods.
 
 ## Use `attr_` macros instead of reader and writer methods
 * To read attributes: `attr_reader`
@@ -78,12 +79,17 @@ this is what might be happening:
 Our dog can already bark, now let's make it spin. 
  <img src="dog-rb-3.png" height="300px" width="auto" style="display:inline"  alt="an ikea-like manual">
 
-<!-- In this Phase we will be talking about: -->
-- local_vars
-- @instance_var
-- @@class_vars
+---
+## Ruby variables 
+
+In this Phase we will be talking about:
+- local_vars - these are locally-scoped
+- @instance_var - these are carried by the instance
+- @@class_vars - these are like storage units for the whole class
 - CONSTS
-- $global_vars
+- $global_vars - global scope!
+
+[Read more about Ruby variables in this blog post](https://medium.com/swlh/hitchhikers-guide-to-ruby-variables-1b4cf83d540c)
 
 ## Homework
 

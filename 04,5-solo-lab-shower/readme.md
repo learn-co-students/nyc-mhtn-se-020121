@@ -1,7 +1,7 @@
 # Shower
 
 This lab is a behavior-driven lab. Meaning, there are no tests and you need to test it yourself.
-There is a [solution branch](https://github.com/learn-co-students/nyc-mhtn-se-020121/tree/solution) and a [video walkthrough](https://youtu.be/uK6WT1qsCqA) available to you but use them only if you feel really stuck or after you've finished a deliverable.
+There is a [solution branch](https://github.com/learn-co-students/nyc-mhtn-se-020121/tree/solution)(open it in a new tab!) and a [video walkthrough](https://youtu.be/uK6WT1qsCqA) available to you but use them only if you feel really stuck or after you've finished a deliverable.
 
 1. Write a Person class.
 2. The person should be instantiated with these attributes: `last_hunger_level_change`, `name`, `hunger_level`, `hunger_time`. 

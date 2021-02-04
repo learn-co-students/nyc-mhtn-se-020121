@@ -19,7 +19,7 @@ class User
     def self.all
         # GUESS: WHAT IS SELF HERE? Why? Check it in binding.pry by running "self"
         # binding.pry
-        @@self
+        @@all
     end
 
     def post_message

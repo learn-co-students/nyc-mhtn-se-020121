@@ -36,11 +36,13 @@
 2. Many-to-many
 3 mins to come up with examples
 
-Book Library 
-Album Artist
-Company Worker
+Flight -< Ticket >- Passenger
+Book -< Copy >- Library 
+Album -< RecordLabel >- Artist
+Company -< Role >- Worker
 <!-- CEO Director -->
-Student Subject
+Student -< Course >- Subject
+Doctor -< Appointment >- Patient
 
 ---
 
@@ -51,7 +53,7 @@ Doctor and Patient
 * Let's discuss the attributes
     * Doctor: name, specialty, location (default to NY)
     * Patient: name
-    * ?, sickness
+    * Appointment: sickness, date, prescription <- JOINER
     * medical history + prescriptions
 * Let's discuss the methods
     * What are the minimum methods we are going to need?
@@ -85,14 +87,11 @@ Doctor and Patient
 
 ## Implement both sides of a many to many relationship
 * many to many => one to many + one to many
-* A doctor has how many appointments!
-    * `#appointments` -- all the appointments of the given doctor 
-* A patient has how many appointments!
-    * `#appointments` -- all the appointments of the given patient
+
 * A doctor has list of patients!
-    * `#patients` -- all the patients of the given doctor
+    * `Doctor#patients` -- all the patients of the given doctor
 * A patients has list of doctors!
-    * `#doctors` -- all the doctors of the given patient
+    * `Patient#doctors` -- all the doctors of the given patient
 
 ## Code Challenge skills
 In evaluating the code challenge,  we will be checking if you were able to meet the deliverables in time and to demonstrate that you (in random order):

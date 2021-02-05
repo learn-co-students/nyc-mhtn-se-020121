@@ -29,6 +29,7 @@ class User
             # - select -> an array of all the elements that match the condition
     end
 
+    # coffee_dad.post_tweet("heelo coffee#")
     def post_tweet(message)
         # 1. create a new tweet
         Tweet.new(self, message)

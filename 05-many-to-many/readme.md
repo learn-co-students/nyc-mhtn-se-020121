@@ -1,6 +1,9 @@
 # Many to Many Relationships
 ---
 
+LECTURE ERD:
+![lecture erd](lecture_erd.png)
+
 ## LGs:
 - [ ] Revise one-to-many
 - [ ] Practice keeping groups of data related to classes on the class as a class variable

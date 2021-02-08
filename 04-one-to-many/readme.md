@@ -41,6 +41,20 @@ _Why do we care so much about codifying and being really specific about the term
 1. For every one (x), how many (y)? 
 2. For every one (y), how many (x)?
 
+- user has many tweets, one tweet belongs to a user
+  - User -< Tweet
+
+- one dog belongs to just one human and one human can have many dogs
+  - Dog Human
+- one school has many teachers, one teacher belongs to a school
+  - School Teacher
+- one human has many pairs of shoes, one pair of shoes belongs to a human
+  - ShoePair Human
+- one library has many books, one book belongs to a library
+  - Library Book 
+- one business belongs to an owner, one owner has many businesses
+  - Business Owner
+
 ### Deliverables
 
 - [ ] Create a User class. The class should have these methods:

@@ -381,7 +381,7 @@ IF YOU ARE DONE, there’s this [amazing SQL practice thread that uses real-worl
 - What does CRUD mean?
 - What are examples of ActiveRecord methods associated with each of the CRUD actions? 
 
-#### Self-Check questions for "Lecture: ActiveRecord Associations"
+#### Self-Check questions for "Review: ActiveRecord CRUD"
 - How do I create a table?
 - How do I add a column to a table?
 - How do I change a table?
@@ -393,7 +393,7 @@ IF YOU ARE DONE, there’s this [amazing SQL practice thread that uses real-worl
 - How do I delete all instances at once?
 
 #### Labs
-tba
+- re-do the `ActiveRecord CRUD` lab on your own
 
 ---
 ### W2 Thursday
@@ -411,6 +411,8 @@ tba
 - What are aliases?
 - What are lifecycle methods? What's an example of a lifecycle method?
 
+### Labs
+- `Solo Lab: More Models`
 
 ---
 ### W2 Friday
@@ -418,6 +420,9 @@ tba
 Your two main objectives today are:
 - practice ActiveRecord and use the association methods whenever possible
 - discuss the project ideas with your partner
+
+### Labs
+- `VHS` pairing lab
 
 ---
 

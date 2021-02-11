@@ -141,7 +141,7 @@ Category :name
    :category_id
 ```
 
-## RECIPE FOR DEALING WITH A NEW FILE
+## RECIPE FOR DEALING WITH A NEW LAB
 - draw your erd and decide on the attributes
 - create migrations 
 - run migrations + check schema

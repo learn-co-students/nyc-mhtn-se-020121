@@ -9,46 +9,63 @@ Active Record Relationships
 - [ ] Understand that macros give us methods but the associations happen in the database
 
 ### Outline
+- tables in SQLs are classes in Ruby -> AR does the translation, right? 
+- naming conventions in Ruby
+- AR just does the migration -> is it a place? or just the "action"?
+- is AR automatically doing mass assignment? 
+- relationship between ruby, rake, activerecord, sql
+- Which rake tasks, or types of rake tasks, do we execute inside rake console(pry)?
+
+
 * Review what we covered so far:
     - What is AR?
-      - 
-      - 
-      - 
-    - What does AR do?
-      - 
+      - bridge between Ruby (whatever language) and sql
+        - helps move data from Ruby to the database/SQL and reverse
+      - design pattern
+      - a type of ORM
+      - takes instructions and translates it into action
+        - code for building databases -> a gem
     - When to use SQL and when AR?
-      - 
+      - whenever you want!
+      - SQL for more complex queries -> `.where` / `.where.not`, e.g. find all the users who are (a) active, (b) between the age of 18 and 60, (c) have a cat <- this is a different model, (d) they have had the cat for x years
+        -> this can be written as one query OR
+        -> it can be written as: User.find_by().map.map
+      - sql -> "Structured Query Language"
     - What's the difference between a model and a table?
-      - model/class -> 
-      - table -> 
+      - model/class -> Ruby uses models/classes, holding instance behavior
+      - table -> database, a way to store data, provides us with schema to see the structure, SQL uses it
     - Can a database have many tables?
       - YES! As many as you **need**
     - What is meant by migration?
       - migration is a blueprint for ActiveRecord to create/change/delete SQL tables
+      - what can I change that is not going to mess other things up (e.g. names of the files -> uppercase/lowercase and when)?
+        - you can change any migration that is not up -> if your migration has been migrated (ran), then you need to first roll it back 
+          - NEVER CHANGE YOUR SCHEMA 
+          - NEVER CHANGE YOUR DEVELOPEMNT FILE
     - Naming conventions in Ruby and AR
-      - model name:  
-      - everything else: 
-    - Project file structure
+      - model name:  SINGULAR (e.g. Plant, IceCream)
+      - everything else (table names): PLURAL (e.g. Plants, IceCreams)
+      - migration file names: descriptive
+      - So when you create the migration with the migration command the name is plural 
+    - Easier to rollback vs delete/destroy, bc delete/destroy will delete the seed data?
+      - rollback -> change something in how the table looks (e.g. name of the column)
+      - deleting/destroying -> an instance 
     - What is `rake`?
-      - 
-      - 
-      - 
+      - task manager
+      - toolbox
+      - ar functionality that allows you to automate your tasks
     - What is `rake console`?
-      - 
-      - 
-      - 
-      - 
+      - super-pry: all the functionality of binding.pry + access to the database
     - Difference between `.new` and `.create`
-      - `.new` -> 
-      - `.create` -> 
-    - What is CRUD and what are the examples of methods for each letter?
-      - CRUD -> 
-      - create: 
-      - read: 
-          - 
-          - 
-      - update: 
-      - delete: 
+      - `.new` -> creates a Ruby instance
+      - `.create` -> creates a Ruby instance AND saves it to the database
+    - what is a column?!?!?!?!
+      - columns are attributes
+      - rows are instances
+    - database -> collection of all the tables
+  - how are images migrated:  
+    - save a url to the database
+    - OR: ActiveStorage
 
 ### Setting up relationships
 

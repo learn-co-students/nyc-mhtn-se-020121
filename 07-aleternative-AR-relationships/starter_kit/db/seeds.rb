@@ -1,9 +1,5 @@
 Plant.destroy_all
 Plant.reset_pk_sequence
-PlantParent.destroy_all
-PlantParent.reset_pk_sequence
-PlantParenthood.destroy_all
-PlantParenthood.reset_pk_sequence
 
 basil = Plant.create(species: "basil the herb", bought: "20200610", color: "green", fussy: true)
 corn_tree = Plant.create(species: "Corn Tree", bought: "20170203", color: "green", fussy: false)
@@ -19,9 +15,4 @@ cactus_2 = Plant.create(species: "Cactus", bought: "20200517", color: "green", f
 joel = PlantParent.create(name: "Joel", responsible: false, age: 10_000)
 sylwia = PlantParent.create(name: "Sylwia", responsible: true, age: 30)
 
-PlantParenthood.create(plant_id: basil.id, plant_parent_id: sylwia.id, affection: 10_000)
-PlantParenthood.create(plant_id: corn_tree.id, plant_parent_id: sylwia.id, affection: 100_000)
-PlantParenthood.create(plant_id: corn_tree.id, plant_parent_id: joel.id, affection: 100_000)
-
-# cmd + control + space for emojis
-puts "🍀 🍀 🍀 🍀"
+puts "🌱 🌱 🌱  SEEDED 🌱 🌱 🌱 🌱 "

@@ -57,30 +57,42 @@ This is our domain model:
 
 ```
 Plant —————< PlantParenthood >————————— Parent
-:name         :affection (int)         :name
-:color        :favorite(bool)          :free_time
-:fussy(bool)                           :age
-:bought(datetime) 
+:name       :affection (int)         :name
+:color                               :free_time
+:bought(datetime)                    :age
+:fussy(bool)
 ```
 
-- How can we associate a Person with a Plant and vice-versa?
+- How can we associate a Parent with a Plant and vice-versa?
 
 Let's first create the association between Parent and PlantParenthood. **Since It's the PlantParenthood that has the chicken feet on itself, this is the model that should contain the instance ides of others.**
 
 ```ruby
-class PlantParenthood < ActiveRecord::Base
-  def people
-    # Person.all.find{ |person| person.id == self.person_id }
+class Plants < ActiveRecord::Base
+  def plant_parenthoods
+    # PlantParenthood.all.select{|pp| pp.plant_id == self.id}    
     # OR use AR .find
-    Person.find(self.person_id )
+    PlantParenthood.where(plant_id: self.id)  
   end
+
+  def parents
+    parent_ids = plant_parenthoods.map{|plant_parenthood| plant_parenthood.parent_id}
+    parent_ids.map{|id| Parent.find(id)}
+  end
+
 end
 #...
-class Person < ActiveRecord::Base
+class Parent < ActiveRecord::Base
   def plant_parenthoods
-    # PlantParenthood.all.select{|pp| pp.person_id == self.id}
+    # PlantParenthood.all.select{|pp| pp.parent_id == self.id}
     # OR use AR .where
-    PlantParenthood.where(person_id: self.id)
+    PlantParenthood.where(parent_id: self.id)
+  end
+
+
+  def plants
+    plant_ids = plant_parenthoods.map{|plant_parenthood| plant_parenthood.plant_id}
+    plant_ids.map{|id| Plant.find(id)}
   end
 end
 ```
@@ -88,11 +100,11 @@ end
 ## What About a Better Way™️
 
 - ActiveRecord Macros
-  - PlantParenthood model: `belongs_to :plant`, `belongs_to :person`
+  - PlantParenthood model: `belongs_to :plant`, `belongs_to :parent`
   - Plant model `has_many :plant_parenthoods`
-  - Person model `has_many :people`
-- These macros provide **even more** methods, like `plant_instance.person` and `person_instance.plants`
-  - **Major Key🔑**––since a `plant_parenthood` instance BELONGS TO a `person` it should have ONE Person. Therefore the method is `.person`. A person HAS MANY `plant_parenthoods`, therefore the method is `.plant_parenthoods` pay attention to what is singular and what is plural.
+  - Parent model `has_many :parents`
+- These macros provide **even more** methods, like `plant_instance.parents` and `parent_instance.plants`
+  - **Major Key🔑**––since a `plant_parenthood` instance BELONGS TO a `parent` it should have ONE Parent. Therefore the method is `.parent`. A parent HAS MANY `plant_parenthoods`, therefore the method is `.plant_parenthoods` pay attention to what is singular and what is plural.
 
 ### Important Methods from ActiveRecord
 
@@ -114,3 +126,26 @@ end
   - `Plant.find_by(name: 'Angel's prayer')` will return the plant with a name of 'Angel's prayer'
 
 [Active Record Docs](http://edgeguides.rubyonrails.org/active_record_migrations.html#using-the-up-down-methods)
+
+
+## ERD to finish with
+
+```
+Category :name
+    |
+    ^
+  Plant ----< PlantParenthood >---- PlantParent
+   :species      :plant_id            :name
+   :color        :plant_parent_id     :responsible
+   :bought       :affection           :age
+   :fussy
+   :category_id
+```
+
+## RECIPE FOR DEALING WITH A NEW LAB
+- draw your erd and decide on the attributes
+- create migrations 
+- run migrations + check schema
+- create models
+- add association macros
+- create seed data and run it

@@ -165,3 +165,5 @@ Category :name
 - create models
 - add association macros
 - create seed data and run it
+
+✨

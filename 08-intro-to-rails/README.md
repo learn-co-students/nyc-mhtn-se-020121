@@ -18,6 +18,19 @@ Intro to the Internet
 
 * What is a server? What is a client?
 
+My computer (client) communicates to Reddit's computer (server)
+
+HTTP(HyperText Tranfer Protocol) Methods/Verb:
+- POST: Create
+- GET: Read 
+- PUT/PATCH: Update
+- DELETE: Delete
+
+HTTP Response (headers/body):
+- BODY: HTML Document (HyperText Markup Language)
+- HEADERS: Metadata about the response
+
+
 * What is the request / response cycle?
 
 * With a client and server, which makes the request? Which sends the response?

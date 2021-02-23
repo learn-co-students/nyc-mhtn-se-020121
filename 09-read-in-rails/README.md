@@ -16,7 +16,7 @@
 ## Phase2: what we will be building
 In this phase we will be building an app called "Faces, Places". We will decide what the app is for and what models it will have as we go along the lectures. Today, we will only focus on one model, `Place` (name: str, street_address: str, zip: int, description: str).
 
-After each lecture, I encourage you to redo the lecture from scratch but by building out your Phase 1 project but in Rails. So, after today's lecture please build out just one model (preferably NOT the one that's the user) and make sure you can view a list of all users and a card of each individual user.
+After each lecture, I encourage you to redo the lecture from scratch but by building out your Phase 1 project but in Rails. So, after today's lecture please build out just one model (preferably NOT the one that's the user) and make sure you can view a list of all items and a page of each individual item.
 
 ---
  

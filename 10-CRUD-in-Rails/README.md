@@ -15,7 +15,7 @@
 
 ## Learning Goals
 - Explain how routes in Rails interact with the controller
-- Use ActionView helpers like `link_to`, `button_to` and `form_for` to help write HTML
+- Use ActionView helpers (html helper) like `link_to`, `button_to` and `form_for` to help us write HTML
 - Use **strong params** to allow creating/updating models with mass assignment
 - Create, Update and Delete with Rails
 

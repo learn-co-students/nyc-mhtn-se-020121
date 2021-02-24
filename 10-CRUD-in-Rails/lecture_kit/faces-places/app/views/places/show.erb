@@ -1,8 +1,11 @@
 <h1> THIS MUST BE THE PLACE</h1>
 
-<h2> <%= @place.name%> </h2>
-<p>
-    <%= @place.description %>
-</p>
+<main>
+    <h2> <%= @place.name%> </h2>
+    <p><%= @place.description %></p>
+    <%= button_to "edit this place", edit_place_path(@place), :method => :get %>
+</main>
 
-<%= link_to "go back", @places %>
+<nav>
+    <%= link_to "go back", @places%>
+</nav>

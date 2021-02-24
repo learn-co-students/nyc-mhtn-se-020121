@@ -1,10 +1,10 @@
 <h1> All the places </h1>
 
-<ul>
-    <span> These are our places:</span>
-    <% @places.each  do |place| %>
-        <li>
-        <%= link_to place.name_and_address, place%>
-        </li>
-    <% end %>
-</ul>
+<main>
+    <ul>
+        <span> These are our places:</span>
+        <% @places.each  do |place| %>
+            <li> <%= link_to place.name_and_address, place%></li>
+        <% end %>
+    </ul>
+</main>

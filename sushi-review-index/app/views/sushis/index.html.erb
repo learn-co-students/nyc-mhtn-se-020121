@@ -1,0 +1,21 @@
+<%#This is a comment ERB tag%>
+<%# STEP 3 - The view file will render all the sushis to the page! %>
+<h1>
+    Display an Index (List) of all Sushi Instances!
+</h1>
+
+<%# unordered list HTML tag (bulleted list) %>
+<ul>
+    <%# iterate over the array of sushi instances %>
+    <%# name each individual in the collection a sushi %>
+    <% @sushis.each do |sushi| %>
+        <%# inside the loop, there is no dana only zuul, jk %>
+        <%# we are using the 'sushi' variable now %>
+        <%# HTML list item tag %>
+        <li>
+            <%# squid tags show what's inside %>
+            <%# display the sushi name%>
+            <%= sushi.name %>
+        </li>
+    <% end %>
+</ul>

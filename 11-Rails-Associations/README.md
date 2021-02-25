@@ -63,7 +63,8 @@ Place -< Visit >- Person
 - **Place**
   - all done ✅
 - **Visit**
-  - when: `datetime`
+  <!-- - when: `datetime` -->
+  - length: `integer`
 - **Person**
   - name: `string`
   - telephone_number: `integer`

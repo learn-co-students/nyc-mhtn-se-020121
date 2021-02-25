@@ -49,7 +49,6 @@ Please read these questions carefully **before** the lecture so that you will kn
 ---
 
 ## Helpful Bookmarks
-- slide deck: <https://docs.google.com/presentation/d/1nvHO7oUfWKUgU3qF25couGCIJuNaHAkvTWGzfernVKQ/edit?usp=sharing>
 - [cheat sheet for forms](http://devhints.io/rails-forms)
 
 ---
@@ -65,6 +64,8 @@ Place -< Visit >- Person
 - **Visit**
   <!-- - when: `datetime` -->
   - length: `integer`
+  - place_id: ???
+  - person_id: ???
 - **Person**
   - name: `string`
   - telephone_number: `integer`
@@ -392,12 +393,12 @@ More Info: [collection_select (ActionView::Helpers::FormOptionsHelper) - APIdock
 
 ## Rails process for labs
 I remember that what helped me in my code challenge was developing a structure/habit in approaching a lab. I’d encourage you to develop one for yourself if you stress out or feel overwhelmed. Write a step-by-step instruction for yourself and do three labs following the steps. For instance, here are the steps that helped me pass&finish fast:
-1. `git clone, bundle install`
+1. `git clone, bundle install` OR `rails new your-project-name`
 2. While your terminal is doing the job, read the instruction.
 3. ON A WHITEBOARD: draw the models, draw the associations (does it need a join model?), write what each model needs (columns), mark validations and views
 NOW only you’re starting to code. Create models (`rails g model`). I’d also copy/paste instructions for each model from the read me. If you feel like a task is super confusing, put it at the bottom of the list so that you get to it at the end (5/6 tasks done is better than being stuck for 40 minutes in panic)
-4. Add association macros and validations in models
-5. Create and run migrations: `rails db:create`, `rails db:migrate`
+4. Create and run migrations: `rails db:create`, `rails db:migrate`
+5. Add has_many association macros and validations in models
 6. Write seed data just to check associations (I’d say, three instances of each class but only 2 for a joiner; in each of the classes, there should be one instance without connection)
 7. `rails db:seed`
 8. In `rails console`: try to access instances of different classes through associations:
@@ -410,3 +411,11 @@ NOW only you’re starting to code. Create models (`rails g model`). I’d also 
 12. fire up the server: `rails s`
 13. go have fun with your page — try to break it!
 **AND OF COURSE YOU DON’T HAVE TO FOLLOW THIS!** My point is only that for me it felt overwhelming and I developed a structure/habit that helped me not panic and not forget to e.g. test!
+
+
+### what we will do now:
+1. set up the routes for the visits (new and create)
+2. create a link that allows us to create a new instance
+3. write the actions in the controller
+4. write up the view (new) for the visit
+5. display the associations on the place profile

@@ -2,6 +2,7 @@ class PlacesController < ApplicationController
 
     # get '/places'
     def index
+        # byebug
         @places = Place.all
         # render :index
         # render :tacos <- you can do that but maybe don't if you don't have to
@@ -19,13 +20,23 @@ class PlacesController < ApplicationController
     # post '/places'
     def create
         # 1. we want to evaluate the params hash that we got from the form
-        byebug
+        # byebug
         # 2. get the nested hash out to create a Place instance out of it
         place_params = params.require(:place).permit(:name, :street_address, :description, :zip)
         # 3. create a new instance
-        new_place = Place.create(place_params)
+        #  THIS IS WHERE WE WILL INTRODUCE SAFEGUARDS
+
+        # byebug
+        # if the params is not providing us with correct data, we should be taken back to the "new" form,
+        # if we are able to create a new instance, we should be redirected to the new place's show page
+        new_place = Place.create!(place_params)
+        if new_place.valid?
+            redirect_to place_path(new_place)
+        else
+            redirect_to new_place_path
+        end
         # 4. direct the user to a happy place
-        redirect_to place_path(new_place)
+        
         # redirect_to places_path
     end
 

@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   # resources(:visits, {only: [:new, :create]}) <- alternative syntax
   # resources :people <- we are not using this at all
   # resources :places
+  # byebug
 
   # ^ resources creates all of the below:
   get '/places', to: 'places#index', as: 'places'

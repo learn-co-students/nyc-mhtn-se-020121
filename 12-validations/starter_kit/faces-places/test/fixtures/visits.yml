@@ -1,0 +1,11 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  length: 1
+  place: one
+  person: one
+
+two:
+  length: 1
+  place: two
+  person: two

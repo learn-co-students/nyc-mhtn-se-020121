@@ -1,0 +1,20 @@
+<h1> THIS MUST BE THE PLACE</h1>
+
+<main>
+    <h2> <%= @place.name%> </h2>
+    <p><%= @place.description %></p>
+    <%= link_to "edit this place", edit_place_path(@place)%>
+    <%= button_to "say bye to #{@place.name}", @place, :method => :delete %>
+    <%= link_to "add a new visit", new_visit_path %>
+
+    <h3> Our lovely visitors: </h3>
+    <ul>
+        <% @visits.each do |visit| %>
+            <li> <%= "#{visit.person.name}: #{visit.length} minutes" %>  </li>
+        <% end %>
+    </ul>
+</main>
+
+<nav>
+    <%= link_to "go back", places_path%>
+</nav>

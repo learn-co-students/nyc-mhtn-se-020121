@@ -24,6 +24,14 @@
 - Create custom validations
 - Use the flash hash to persist data for an additional request and render error messzips to the user
 
+---
+## Reminders
+- every time you make a request (in your browser or through postman), a new instance of the controller is created and after the request is finished, that instance is obliterated (garbage collection comes in)
+- controllers communicate with models and views, not with other controllers
+- you should make sure that the data coming into your database is sanitized (so you don't have surprises like age that's a string or name that's `nil``, which later destroys your app)
+
+---
+
 **Problem Statement:** We need to make sure users input data in a way that ensures only *valid* data is saved in our database. 
 
 In other words, how do we protect our database from the typical user:

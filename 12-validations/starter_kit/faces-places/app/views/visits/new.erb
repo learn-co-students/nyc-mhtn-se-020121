@@ -1,0 +1,18 @@
+<h1> Add a new Visit</h1>
+
+<%= form_for @visit do |form_helper| %>
+    <%= form_helper.label :length, "Length of the visit (mins)" %>
+    <%= form_helper.number_field :length %><br/>
+    <%# SOOOOOO 2000s bleh %>
+    <%# form_helper.label :place_id %>
+    <%# form_helper.number_field :place_id %>
+    <%# form_helper.label :person_id %>
+    <%# form_helper.number_field :person_id %>
+    <%= form_helper.label :place_id %>
+    <%= form_helper.collection_select :place_id, @places, :id, :name_and_address %> <br/>
+
+    <%= form_helper.label :person_id %>
+    <%= form_helper.collection_select :person_id, @people, :id, :name %> <br/>
+
+    <%= form_helper.submit "Done!" %>
+<% end %>

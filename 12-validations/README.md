@@ -28,7 +28,7 @@
 ## Reminders
 - every time you make a request (in your browser or through postman), a new instance of the controller is created and after the request is finished, that instance is obliterated (garbage collection comes in)
 - controllers communicate with models and views, not with other controllers
-- you should make sure that the data coming into your database is sanitized (so you don't have surprises like age that's a string or name that's `nil``, which later destroys your app)
+- you should make sure that the data coming into your database is sanitized (so you don't have surprises like age that's a string or name that's `nil`, which later destroys your app)
 
 ---
 
@@ -36,7 +36,7 @@
 
 In other words, how do we protect our database from the typical user:
 
-![typical-user](https://camo.githubuserdescription.com/bd5a0e0355fa6a8c1f5478f197be5562a479d41a/68747470733a2f2f6d656469612e67697068792e636f6d2f6d656469612f5a665531314f44616e6c6f43412f67697068792e676966)
+![typical-user](https://i.pinimg.com/originals/b6/53/01/b653019680cd24ff0a44001f78783fbd.gif)
 
 
 ## Outline

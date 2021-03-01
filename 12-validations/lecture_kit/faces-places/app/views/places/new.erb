@@ -1,5 +1,13 @@
 <h1> Add a new place! </h1>
 
+<% if @errors%>
+    <ul>
+    <% @errors.each do |error| %>
+        <li class="error"> <%= error %> </li>
+    <% end %>
+    </ul>
+<% end %>
+
 <%= form_for @place  do |form_helper|%>
     <%= form_helper.label :name %>
     <%= form_helper.text_field :name %><br/>

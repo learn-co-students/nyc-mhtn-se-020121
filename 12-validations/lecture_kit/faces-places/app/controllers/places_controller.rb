@@ -12,6 +12,7 @@ class PlacesController < ApplicationController
     def new
         # 1. create a clean slate of a Ruby instance
         # byebug
+        @errors = flash[:errors]
         @place = Place.new
         # 2. response: see the form on the page
         # render :new
@@ -29,10 +30,12 @@ class PlacesController < ApplicationController
         # byebug
         # if the params is not providing us with correct data, we should be taken back to the "new" form,
         # if we are able to create a new instance, we should be redirected to the new place's show page
-        new_place = Place.create!(place_params)
+        new_place = Place.create(place_params)
         if new_place.valid?
             redirect_to place_path(new_place)
         else
+            # flash[:chicken] = "you got this!"
+            flash[:errors] = new_place.errors.full_messages # <- this will be an array of strings
             redirect_to new_place_path
         end
         # 4. direct the user to a happy place

@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  price: 1
+  vendor: one
+  sweet: one
+
+two:
+  price: 1
+  vendor: two
+  sweet: two

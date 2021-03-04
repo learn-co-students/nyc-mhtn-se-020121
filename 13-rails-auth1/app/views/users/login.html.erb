@@ -1,0 +1,12 @@
+<h1>Login Form Will Go Here</h1>
+
+<p>Form Tag - Requires the URL of where the form is to be submitted (you can add methods)</p>
+<p> The name of our inputs becomes the keys of params <p>
+
+<%= form_tag "/handle_login" do %>
+  <%= label_tag :username, "Enter Username" %>
+  <%= text_field_tag :username %>
+  <%= label_tag :password, "Password" %>
+  <%= password_field_tag :password %>
+  <%= submit_tag "Login" %>
+<% end %>

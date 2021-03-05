@@ -1,0 +1,18 @@
+<h1> THIS MUST BE THE PLACE</h1>
+
+<main>
+    <h2> <%= @place.name%> </h2>
+    <p><%= @place.description %></p>
+    <%= link_to "Log a New Visit", new_visit_path %>
+
+    <h3> Our lovely visitors: </h3>
+    <ul>
+        <% @visits.each do |visit| %>
+            <li> <%= "#{visit.user.username}: #{visit.length} minutes" %>  </li>
+        <% end %>
+    </ul>
+</main>
+
+<nav>
+    <%= link_to "Go Back", places_path%>
+</nav>

@@ -3,14 +3,18 @@
 <main>
     <h2> <%= @place.name%> </h2>
     <p><%= @place.description %></p>
-    <%= link_to "Log a New Visit", new_visit_path %>
-
-    <h3> Our lovely visitors: </h3>
-    <ul>
+    
+    
+    <% if logged_in? %>
+        <h3> Our lovely visitors: </h3>
+        <ul>
         <% @visits.each do |visit| %>
             <li> <%= "#{visit.user.username}: #{visit.length} minutes" %>  </li>
-        <% end %>
-    </ul>
+            <% end %>
+        </ul>
+        <%= link_to "Log a New Visit", new_visit_path %>
+    <% end %>
+
 </main>
 
 <nav>

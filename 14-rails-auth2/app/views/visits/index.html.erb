@@ -1,0 +1,9 @@
+<h1> <%= @current_user.username %> has visited: </h1>
+
+<ol>
+    <% @visits.each do |visit| %>
+        <li>
+            <%= link_to visit.place.name, place_path(visit.place) %>
+        </li>
+    <% end %>
+</ol>

@@ -1,0 +1,14 @@
+<h1>New Visit Form</h1>
+
+<%= form_for @visit do |f| %>
+
+    <%= f.label :place_id %>
+    <%= f.collection_select :place_id, @places, :id, :name %>
+    
+    <%= f.label :length %>
+    <%= f.number_field :length %>
+
+    <%= f.submit %>
+
+
+<% end %> 

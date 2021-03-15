@@ -1,6 +1,6 @@
 # [Introduction to JavaScript](https://www.destroyallsoftware.com/talks/wat?fbclid=IwAR10eF6AiZs3--6cVuJ6HpkPVoTkbUnK5R8VoIQCF7kDuBsepruvr-5WfwA)
 
-<img src='/images/js-encouragement.jpeg' alt='You got this!'>
+<img src='images/js-encouragement.jpeg' alt='You got this!'>
 
 ## SWBATs
 

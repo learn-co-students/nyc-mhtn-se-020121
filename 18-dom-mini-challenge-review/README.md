@@ -1,23 +1,5 @@
 # JS Mini Challenge: DOM Manipulation
 
-## Instructions
-
-Fork this repo, then run `git clone` to download your fork locally. Then `cd` into the downloaded directory and open it in your text editor with `code .`.
-
-## Submitting
-
-When you’re finished, run the following commands in your terminal to submit:
-
-```
-git add .
-git commit -m 'Done'
-git push
-```
-
-To get feedback on your code, make a [pull request from your forked repo](https://docs.github.com/en/github/collaborating-with-issues-and-pull-requests/creating-a-pull-request-from-a-fork). If you worked with a partner, you can tag your partner on the pull request.
-
-_______
-
 ## Assignment
 
 Today, we'll be building a prototype of a small application about Raffy's trip to the Amazon Rainforest. If you're so inclined to do so, feel free to change the data and personalize your app!

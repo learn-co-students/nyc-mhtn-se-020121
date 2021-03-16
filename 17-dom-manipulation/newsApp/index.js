@@ -5,7 +5,7 @@ const articlesArray = [
         author: "A.J. Perlis",
         description: "My dog is rude because he kicks down doors when closed and chooses when to listen",
         image: "images/IMG_4598.jpg",
-        likes: "1"
+        likes: 1
     },
     {
         id: 3,
@@ -48,3 +48,113 @@ const articlesArray = [
         likes: 9000
     }
 ]
+
+
+
+// READ
+
+const newsTitle = document.querySelector('h1#news-co')
+const allCards = document.querySelectorAll('.card')
+
+// UPDATE
+// find the element!
+// const firstCard = allCards[0]
+const firstCard = document.querySelector('[data-id="1"]')
+// const img = firstCard.querySelector('img')
+// img.src = "images/raffy.jpg"
+
+const schoolTitle = document.querySelector('p.flatiron')
+schoolTitle.style.color = 'blue'
+
+
+// DELETE
+const adCard = document.querySelector('div.ad')
+adCard.remove()
+
+
+// CREATE
+
+// artisinal way
+// articlesArray.forEach(function (articleObject) {
+//     const outerDiv = document.createElement('div')
+//     outerDiv.classList.add('card')
+//     outerDiv.dataset.id = articleObject.id
+
+//     const imgDiv = document.createElement('div')
+//     imgDiv.classList.add('img-container')
+
+//     const img = document.createElement('img')
+//     img.src = articleObject.image
+//     img.alt = articleObject.title
+
+//     const articleContainerDiv = document.createElement('div')
+//     articleContainerDiv.classList.add('article-title-container')
+
+//     const h4 = document.createElement('h4')
+//     h4.textContent = articleObject.title
+
+//     const contentDiv = document.createElement('div')
+//     contentDiv.classList.add('content')
+
+//     const authorPtag = document.createElement('p')
+//     authorPtag.classList.add('author')
+//     authorPtag.textContent = `Author: ${articleObject.author}`
+
+//     const scrollDiv = document.createElement('div')
+//     scrollDiv.classList.add('scroll')
+
+//     const descriptionPtag = document.createElement('p')
+//     descriptionPtag.classList.add('description')
+//     descriptionPtag.textContent = articleObject.description
+
+//     const likesPtag = document.createElement('p')
+//     likesPtag.classList.add('react-count')
+//     likesPtag.textContent = `${articleObject.likes} likes`
+
+//     const button = document.createElement('button')
+//     button.classList.add('like-button')
+//     button.textContent = '♥️ Like'
+
+//     contentDiv.append(authorPtag, scrollDiv, likesPtag, button)
+//     scrollDiv.append(descriptionPtag)
+
+//     articleContainerDiv.append(h4)
+//     imgDiv.append(img, articleContainerDiv)
+
+//     outerDiv.append(imgDiv, contentDiv)
+
+//     const collection = document.querySelector('div#collection')
+//     collection.append(outerDiv)
+//     console.log(outerDiv)
+// })
+
+
+
+// artisinal & innerHTML combo
+articlesArray.forEach(function (articleObject) {
+    const outerDiv = document.createElement('div')
+    outerDiv.classList.add('card')
+    outerDiv.dataset.id = articleObject.id
+
+    outerDiv.innerHTML = `
+            <div class="img-container">
+                    <img src="${articleObject.image}"
+                        alt="${articleObject.title}" />
+                    <div class="article-title-container">
+                        <h4>${articleObject.title}</h4>
+                    </div>
+                </div>
+                <div class="content">
+                    <p class='author'>Author: ${articleObject.author}</p>
+                    <div class="scroll">
+                        <p class='description'>${articleObject.description}</p>
+                    </div>
+                    <p class="react-count">${articleObject.likes} likes</p>
+                    <button class="like-button">♥️ Like</button>
+                </div>`
+
+    console.log(outerDiv)
+    const collection = document.querySelector('div#collection')
+    collection.append(outerDiv)
+
+})

@@ -1,0 +1,29 @@
+* {
+    font-family: monospace;
+}
+
+img {
+    height: 300px;
+}
+
+h4, ul {
+    margin-left: 5em;
+}
+
+li img {
+    height: 150px;
+}
+
+li a {
+    display: block;
+}
+
+#profile {
+    margin-left: auto;
+    margin-right: auto;
+    width: 21em;
+}
+
+#header {
+    text-align: center;
+}

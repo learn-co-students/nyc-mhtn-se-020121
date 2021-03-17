@@ -6,7 +6,10 @@ const header = document.querySelector("h1#header")
 /***** Deliverable 2 *****/
 // console.dir(header)
 // header.style.color = 'red'
-header.style.color = 'rgba(255,0,0,1)'
+// header.style.color = 'rgba(255,0,0,1)'
+header.style.color = "#cbf21b"
+header.style.backgroundColor = "black"
+header.style.border = "chartreuse"
 
 /***** Deliverable 3 *****/
 // console.log('This is what the traveler object looks like: ', traveler)

@@ -6,11 +6,11 @@ const books = [
     {
         title: "We",
         author: "Zamyatin",
-        yearRead: 2015
+        yearRead: 2021
     },
     {
         title: "Omon Ra",
-        author: "Pelevin",
+        author: "Zamyatin",
         yearRead: 2017
     },
     {
@@ -35,5 +35,5 @@ const books = [
     }
 ]
 
-// array of numbers
+// array of strings
 const bookTitles = ["We", "Omon Ra", "The Defense", "Pnin", "War and Peace", "The Foundation Pit", "Notes From Underground"]

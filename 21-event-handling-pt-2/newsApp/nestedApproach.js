@@ -47,6 +47,24 @@ function renderOneCard(articleObject) {
 
     const collection = document.querySelector('div#collection')
     collection.append(outerDiv)
+
+    // NESTED/CLOSURES APPROACH
+
+    const deleteBtn = outerDiv.querySelector('button.delete-button')
+
+    deleteBtn.addEventListener('click', function (event) {
+        console.log('clicked!', event.target)
+        outerDiv.remove()
+
+    })
+
+    const likeBtn = outerDiv.querySelector('button.like-button')
+
+    likeBtn.addEventListener('click', function (event) {
+        console.log('clicked!', event.target)
+        const likesPtag = outerDiv.querySelector('p.react-count')
+        likesPtag.textContent = `${articleObject.likes++} Likes`
+    })
 }
 
 
@@ -84,69 +102,17 @@ form.addEventListener('submit', function (event) {
 
 
 
-
-// EVENT DELEGATION
-// Identify which elements you care to listen for an event on
-// delete and likes buttons of all the cards
-// Find the closest common parent of all these elements
-// div#collection
-
-const collectionDiv = document.querySelector('div#collection')
-
-collectionDiv.addEventListener('click', function (event) {
-
-    // write conditional logic in order to determine
-    // if the user clicked on an element we care about
-    if (event.target.matches('button.like-button')) {
-        const likesPtag = event.target.previousElementSibling
-        const likes = parseInt(likesPtag.textContent) + 1
-        likesPtag.textContent = `${likes} Likes`
-    }
-    else if (event.target.matches('button.delete-button')) {
-        const card = event.target.closest('div.card')
-        card.remove()
-    }
-})
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 /************** APP INIT **************/
 renderAllCards()
 
 
 
-// document.body.addEventListener('click', function (event) {
-//     console.log('BODY CLICKED!!!', event.target)
+
+// WILL NOT WORK FOR OUR APPLICATION - OUR CARDS ARE BEING CREATED IN MULTIPLE WAYS
+// const allDeleteBtns = document.querySelectorAll('.delete-button')
+
+// allDeleteBtns.forEach(function (btn) {
+//     btn.addEventListener('click', function (event) {
+//         console.log('Clicked!!!!', event.target)
+//     })
 // })
-
-// document.querySelector('.delete-button').addEventListener('click', function (event) {
-//     console.log('DELETE CLICKED!!!', event.target)
-// })
-
-
-// document.querySelector('div.card').addEventListener('click', function (event) {
-//     console.log('CARD CLICKED!!!', event.target)
-// })
-
-

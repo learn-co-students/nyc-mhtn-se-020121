@@ -8,6 +8,9 @@
     --theme-color-button-two: rgb(43, 104, 235);
     --edition-info-font-color: black;
     --theme-color-form-input: white;
+    --delete-button: black;
+    --delete-button-bg: white;
+    --news-co-title: black;
 }
 
 body.dark-mode {
@@ -18,12 +21,15 @@ body.dark-mode {
     --theme-color-three: rgba(95, 174, 235, 0.77);
     --edition-info-font-color: rgb(255, 255, 255);
     --theme-color-form-input: rgb(186, 186, 186);
+    --delete-button: rgb(255, 0, 0);
+    --delete-button-bg: rgb(252, 252, 252);
+    --news-co-title: rgb(244, 240, 240);
 }
 
-* {
+/* * {
     border: solid;
     border-color: cornflowerblue;
-}
+} */
 
 * {
     margin: 0;
@@ -77,6 +83,7 @@ header {
     border-top: double;
     border-bottom: double;
     border-width: 1rem;
+    color: var(--news-co-title);
 }
 
 #news-co {
@@ -85,7 +92,7 @@ header {
     font-size: 6vw;
     line-height: 90px;
     text-transform: uppercase;
-    /* line-height: 80pt; */
+    
 }
 
 #earth {
@@ -118,7 +125,6 @@ header {
     width: 100%;
     margin-right: auto;
     margin-left: auto;
-    justify-content: center;
 }
 
 .card {
@@ -175,8 +181,44 @@ header {
 }
 
 .card img:hover {
+    /* ~ .article-title-container { */
+    /* display: hidden;
+        color: purple; */
     z-index: 10000;
     position: relative;
+}
+
+.delete-button {
+    font-size: 20px;
+    background: none;
+    border: none;
+    border-radius: 1rem;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    box-shadow: var(--delete-button) 2px 2px 2px 2px;
+}
+
+button:focus.delete-button, button:hover.delete-button {
+    outline: none;
+}
+
+.delete-button:active {
+    box-shadow: rgba(32, 2, 56, 0.924) 1px 1px 4px;
+}
+
+.delete-button {
+    cursor: pointer;
+    border-radius: 0;
+    background-color: var(--delete-button-bg);
+    margin: 0.5rem;
+    width: 40px;
+    height: 40px;
+    padding: 0;
+    align-items: center;
+    justify-content: center;
+    opacity: 40%;
+    color: rgb(255, 0, 0);
+    font-weight: bolder;
 }
 
 .content {
@@ -279,7 +321,7 @@ header {
 }
 
 .toggle-switch input:checked+label {
-    background-color: rgb(105, 139, 225);
+    background-color: rgb(0, 71, 252);
 }
 
 /* Form */
@@ -289,7 +331,8 @@ hr {
 }
 
 #form-header {
-    margin: 1em 3rem 0em 2em;
+    margin-bottom: 1em;
+    width: 100%;
     color: var(--edition-info-font-color);
 }
 
@@ -299,6 +342,10 @@ form {
     background-color: var(--theme-color-form);
     width: 30%;
     margin: 1em 3rem 4rem 2em;
+    border: double;
+    border-width: 1rem;
+    margin-right: auto;
+    margin-left: auto;
 }
 
 form input, form textarea {

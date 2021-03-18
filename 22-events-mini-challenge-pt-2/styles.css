@@ -45,7 +45,6 @@ li a {
 .update-form {
     width: 400px;
     flex: none;
-    border: solid green;
     padding-left: 10px;
-    /* display: h; */
+    background-color: rgb(204, 216, 204);
 }

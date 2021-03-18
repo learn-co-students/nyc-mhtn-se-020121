@@ -42,6 +42,7 @@ function renderAnimalSightingPost(animalObject) {
     a.textContent = `Here's a video about the ${animalObject.species} species!`
 
     const sightLikesPtag = document.createElement('p')
+    sightLikesPtag.className = 'likes-display'
     sightLikesPtag.textContent = `${animalObject.likes} Likes`
 
     const likeButton = document.createElement('button')
@@ -55,7 +56,7 @@ function renderAnimalSightingPost(animalObject) {
     deleteButton.textContent = 'Delete'
     
     const updateButton = document.createElement('button')
-    updateButton.classList.add('update-button')
+    updateButton.classList.add('toggle-update-form-button')
     updateButton.type = 'button'
     updateButton.textContent = 'Toggle Update Form'
 
@@ -63,7 +64,7 @@ function renderAnimalSightingPost(animalObject) {
     updateForm.className = 'update-form'
     updateForm.innerHTML = `
     <input type='text' value='${animalObject.description}'/>
-    <input type="submit" value="Update ${animalObject.species}" />
+    <input type="submit" value="Update description" />
     `
     updateForm.style.display = 'none'
 

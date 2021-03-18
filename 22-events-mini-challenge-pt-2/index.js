@@ -54,7 +54,7 @@ function renderAnimalSightingPost(animalObject) {
     deleteButton.classList.add('delete-button')
     deleteButton.type = 'button'
     deleteButton.textContent = 'Delete'
-    
+
     const updateButton = document.createElement('button')
     updateButton.classList.add('toggle-update-form-button')
     updateButton.type = 'button'
@@ -102,7 +102,7 @@ header.addEventListener('click', function (event) {
 const button = document.querySelector('button.like-button')
 
 button.addEventListener('click', function () {
-    likes.textContent = `${traveler.likes++} Likes`
+    likes.textContent = `${++traveler.likes} Likes`
 })
 
 
@@ -136,5 +136,51 @@ newSightingForm.addEventListener('submit', function (event) {
 
 /***** End of Starter Code *****/
 /************************** EVENTS PART 2 JS MINI CHALLENGE ******************************/
+
+
+const animalCollection = document.querySelector('ul#animals')
+
+animalCollection.addEventListener('click', function (event) {
+
+    const li = event.target.closest('li')
+
+    if (event.target.matches('button.like-button')) {
+        // event.target.className === 'like-button'
+        const likesPtag = li.querySelector('p.likes-display')
+        const currLikes = parseInt(likesPtag.textContent) + 1
+        likesPtag.textContent = `${currLikes} Likes`
+    }
+    else if (event.target.className === 'delete-button') {
+        // ^ matches is a good option as well for this conditional statement
+        li.remove()
+    }
+    else if (event.target.matches('button.toggle-update-form-button')) {
+        const form = li.querySelector('form')
+        // const updateForm = event.target.nextElementSibling // another option
+        // if (form.style.display === 'block') {
+        //     form.style.display = 'none'
+        // }
+        // else {
+        //     form.style.display = 'block'
+        // }
+
+        // ternary operator
+        form.style.display = form.style.display === 'block' ? 'none' : 'block'
+    }
+})
+
+
+animalCollection.addEventListener('submit', function (event) {
+    if (event.target.matches('form.update-form')) {
+        event.preventDefault()
+
+        const descriptionInput = event.target[0].value
+        const li = event.target.closest('li')
+        const descriptionPtag = li.querySelector('p')
+        descriptionPtag.textContent = descriptionInput
+
+    }
+})
+
 
 

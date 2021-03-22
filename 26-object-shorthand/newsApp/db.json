@@ -1,0 +1,52 @@
+{
+  "articles": [
+    {
+      "id": 2,
+      "title": "Why Buford is Rude",
+      "author": "A.J. Perlis",
+      "description": "My dog is rude because he kicks down doors when closed and chooses when to listen",
+      "image": "images/IMG_4598.jpg",
+      "likes": 41
+    },
+    {
+      "id": 3,
+      "title": "Local Boy Unmutes Himself",
+      "author": "Tim Wit",
+      "description": "In a stunning turn of events, a very competent programmer remembers to press the 'unmute' button before speaking on Zoom.",
+      "image": "https://images.idgesg.net/images/article/2020/07/zoom-for-home-100852180-large.jpg",
+      "likes": 45
+    },
+    {
+      "title": "Temp",
+      "author": "Raffy",
+      "description": "fdsfadsf",
+      "image": "https://images-na.ssl-images-amazon.com/images/I/51SBsQoWHsL._AC_SX466_.jpg",
+      "likes": 5,
+      "id": 4
+    },
+    {
+      "title": "Butterflies fly!",
+      "author": "Butter Cup",
+      "description": "Amazing",
+      "image": "https://www.sciencemag.org/sites/default/files/styles/article_main_large/public/butterfly_16x9_0.jpg?itok=jZ3DYvGK",
+      "likes": 0,
+      "id": 5
+    },
+    {
+      "title": "Temp",
+      "author": "Raffy",
+      "description": "WOW",
+      "image": "https://www.sciencemag.org/sites/default/files/styles/article_main_large/public/butterfly_16x9_0.jpg?itok=jZ3DYvGK",
+      "likes": 0,
+      "id": 6
+    },
+    {
+      "title": "amazing",
+      "author": "it works",
+      "description": "let's hope ",
+      "image": "https://www.sciencemag.org/sites/default/files/styles/article_main_large/public/butterfly_16x9_0.jpg?itok=jZ3DYvGK",
+      "likes": 0,
+      "id": 7
+    }
+  ]
+}

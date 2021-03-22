@@ -18,7 +18,27 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
+/********************* FETCH FUNCTIONS *********************/
+function fetchToys(httpVerb, data, id = null) {
+  let fetchUrl = url
 
+  if (httpVerb === 'PATCH') {
+    fetchUrl = `${url}/${id}`
+  }
+
+  return fetch(fetchUrl, {
+    method: httpVerb,
+    headers: {
+      'Content-Type': 'application/json',
+      'Accept': 'application/json'
+    },
+    body: JSON.stringify(data)
+  })
+    .then(response => response.json())
+}
+
+
+/********************* RENDER FUNCTIONS *********************/
 function renderOneToy(toy) {
   const div = document.createElement('div')
   div.classList.add('card')
@@ -48,9 +68,8 @@ function getAllToys() {
     })
 }
 
-
-
-newToyForm.addEventListener('submit', event => {
+/********************* EVENT LISTENER CALLBACKS *********************/
+const handleFormSubmit = event => {
   event.preventDefault()
 
   const newToyObj = {
@@ -58,49 +77,34 @@ newToyForm.addEventListener('submit', event => {
     image: event.target.image.value,
     likes: 0
   }
-  console.log(newToyObj)
 
-  fetch(url, {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-      'Accept': 'application/json'
-    },
-    body: JSON.stringify(newToyObj)
-  })
-    .then(response => response.json())
-    .then(toyObj => {
-      renderOneToy(toyObj) // pessimistic rendering
-    })
+  fetchToys('POST', newToyObj)
+    .then(toyObj => renderOneToy(toyObj))
 
-  event.target.reset() // or newToyForm.reset()
-
-})
+  event.target.reset()
+}
 
 
-collectionDiv.addEventListener('click', event => {
+const handleLikeBtnClick = event => {
   if (event.target.matches('button.like-btn')) {
-
     const id = event.target.dataset.id
     const likesPtag = event.target.previousElementSibling
     const likes = parseInt(likesPtag.textContent) + 1
     likesPtag.textContent = `${likes} Likes` // optimistic rendering
 
-    fetch(`${url}/${id}`, {
-      method: 'PATCH',
-      headers: {
-        'Content-Type': 'application/json',
-        'Accept': 'application/json'
-      },
-      body: JSON.stringify({ likes }) // {likes: likes}
-    })
-    // .then(response => response.json())
-    // .then(data => {
-    //   likesPtag.textContent = `${data.likes} Likes`
-    // })
-
+    fetchToys('PATCH', { likes }, id) // { likes } is the same as {likes: likes}
+      .then(data => {
+        console.log('Yay!', data)
+      })
   }
-})
+}
+
+
+
+
+/********************* EVENT LISTENERS *********************/
+newToyForm.addEventListener('submit', handleFormSubmit)
+collectionDiv.addEventListener('click', handleLikeBtnClick)
 
 
 

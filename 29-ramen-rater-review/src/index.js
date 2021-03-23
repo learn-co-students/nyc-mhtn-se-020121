@@ -33,6 +33,7 @@ function loadRamenMenu() {
         })
 }
 
+
 function detailOneRamen({ image, name, restaurant, id, rating, comment }) {
     const detailImg = document.querySelector('img.detail-image')
     detailImg.src = image
@@ -49,6 +50,7 @@ function detailOneRamen({ image, name, restaurant, id, rating, comment }) {
     updateForm[0].value = rating
     updateForm[1].value = comment
 }
+
 
 function handleDelete(event) {
     const id = event.target.nextElementSibling.dataset.id
@@ -77,6 +79,8 @@ function handleDelete(event) {
         .catch(error => alert(`The delete was not successful! ${error.message}. Try again later.`))
 }
 
+
+
 /******************** FETCH HELPER FUNCTIONS ********************/
 function fetchOneRamen(id) {
     return fetch(`${url}/${id}`)
@@ -94,6 +98,7 @@ const handleRamenMenuClick = event => {
         handleDelete(event)
     }
 }
+
 
 const handleUpdateFormSubmit = event => {
     event.preventDefault()
@@ -137,12 +142,13 @@ const handleNewRamenFormSubmit = event => {
             throw new Error(response.statusText)
         })
         .then(newRamenObj => {
-            console.log(newRamenObj)
             renderOneRamenMenuImg(newRamenObj)
             newRamenForm.reset()
         })
         .catch(error => alert(error))
 }
+
+
 
 /******************** EVENT LISTENERS ********************/
 ramenMenu.addEventListener('click', handleRamenMenuClick)

@@ -5,6 +5,7 @@ const updateForm = document.querySelector('form#ramen-rating')
 const newRamenForm = document.querySelector('form#new-ramen')
 
 
+/******************** RENDER FUNCTIONS ********************/
 function renderOneRamenMenuImg({ image, id }) {
 
     const parentContainer = document.createElement('div')
@@ -49,54 +50,53 @@ function detailOneRamen({ image, name, restaurant, id, rating, comment }) {
     updateForm[1].value = comment
 }
 
+function handleDelete(event) {
+    const id = event.target.nextElementSibling.dataset.id
+
+    fetch(`${url}/${id}`, {
+        method: 'DELETE'
+    })
+        .then(response => {
+            if (response.ok) {
+                return response.json()
+            }
+            throw new Error(response.statusText)
+        })
+        .then(_ => {
+            const delBtnParent = event.target.closest('div')
+            delBtnParent.remove()
+
+            const firstRamen = document.querySelector('div#ramen-menu img')
+            const firstRamenId = firstRamen.dataset.id
+
+            if (firstRamenId !== id) {
+                fetchOneRamen(firstRamenId)
+                    .then(ramenObject => detailOneRamen(ramenObject))
+            }
+        })
+        .catch(error => alert(`The delete was not successful! ${error.message}. Try again later.`))
+}
+
+/******************** FETCH HELPER FUNCTIONS ********************/
 function fetchOneRamen(id) {
     return fetch(`${url}/${id}`)
         .then(response => response.json())
 }
-/******************** EVENT LISTENERS ********************/
 
 
-
-/******************** EVENT LISTENERS ********************/
-ramenMenu.addEventListener('click', event => {
-
+/******************** EVENT LISTENER CALLBACKS ********************/
+const handleRamenMenuClick = event => {
     if (event.target.matches('img')) {
         fetchOneRamen(event.target.dataset.id)
             .then(oneRamenObject => detailOneRamen(oneRamenObject))
     }
     else if (event.target.tagName === 'BUTTON') {
-
-        const id = event.target.nextElementSibling.dataset.id
-
-        fetch(`${url}/${id}`, {
-            method: 'DELETE'
-        })
-            .then(response => {
-                if (response.ok) {
-                    return response.json()
-                }
-                throw new Error(response.statusText)
-            })
-            .then(_ => {
-                const delBtnParent = event.target.closest('div')
-                delBtnParent.remove()
-
-                const firstRamen = document.querySelector('div#ramen-menu img')
-                const firstRamenId = firstRamen.dataset.id
-
-                if (firstRamenId !== id) {
-                    fetchOneRamen(firstRamenId)
-                        .then(ramenObject => detailOneRamen(ramenObject))
-                }
-            })
-            .catch(error => alert(`The delete was not successful! ${error.message}. Try again later.`))
+        handleDelete(event)
     }
-})
+}
 
-updateForm.addEventListener('submit', event => {
+const handleUpdateFormSubmit = event => {
     event.preventDefault()
-
-    // user input
     const updatedValues = {
         rating: event.target.rating.value,
         comment: event.target.comment.value
@@ -109,15 +109,10 @@ updateForm.addEventListener('submit', event => {
         },
         body: JSON.stringify(updatedValues)
     })
-    // .then(response => response.json())
-    // .then(updatedRamenObj => {
-    //     console.log(updatedRamenObj)
-    // })
-})
+}
 
 
-
-newRamenForm.addEventListener('submit', event => {
+const handleNewRamenFormSubmit = event => {
     event.preventDefault()
 
     const newRamen = {
@@ -147,7 +142,12 @@ newRamenForm.addEventListener('submit', event => {
             newRamenForm.reset()
         })
         .catch(error => alert(error))
-})
+}
+
+/******************** EVENT LISTENERS ********************/
+ramenMenu.addEventListener('click', handleRamenMenuClick)
+updateForm.addEventListener('submit', handleUpdateFormSubmit)
+newRamenForm.addEventListener('submit', handleNewRamenFormSubmit)
 
 loadRamenMenu()
 

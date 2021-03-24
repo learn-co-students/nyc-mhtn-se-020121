@@ -4,6 +4,20 @@ const ingredientsUrl = 'http://localhost:3000/ingredients'
 const updateForm = document.querySelector('form#update-form')
 const newIngredientForm = document.querySelector('form#ingredient-form')
 const spiceImagesDiv = document.querySelector('div#spice-images')
+const ingredientsUl = document.querySelector('ul.ingredients-list')
+
+
+/********************** RENDER FUNCTIONS **********************/
+function renderOneIngredient(ingredientObject) {
+    const li = document.createElement('li')
+    li.textContent = ingredientObject.name
+    ingredientsUl.append(li)
+}
+
+
+function renderAllIngredients(ingredientsArr) {
+    ingredientsArr.forEach(ingredientObject => renderOneIngredient(ingredientObject))
+}
 
 
 function displaySpiceBlendDetail(spiceBlendObj) {
@@ -16,46 +30,51 @@ function displaySpiceBlendDetail(spiceBlendObj) {
 
     updateForm.dataset.id = spiceBlendObj.id
     newIngredientForm.dataset.id = spiceBlendObj.id
-
-    const ingredientsUl = document.querySelector('ul.ingredients-list')
-
     ingredientsUl.innerHTML = ''
 
-    spiceBlendObj.ingredients.forEach(ingredientObject => {
-        const li = document.createElement('li')
-        li.textContent = ingredientObject.name
-        ingredientsUl.append(li)
+    renderAllIngredients(spiceBlendObj.ingredients)
+}
+
+
+function renderOneSpiceBlendImg(spiceObject) {
+    const img = document.createElement('img')
+    img.src = spiceObject.image
+    img.alt = spiceObject.title
+    img.dataset.id = spiceObject.id
+
+    spiceImagesDiv.append(img)
+}
+
+
+function renderAllSpiceBlends(spiceBlendArray) {
+    spiceBlendArray.forEach(spiceObject => {
+        renderOneSpiceBlendImg(spiceObject)
     })
 }
 
 
-fetch(`${url}/1`)
-    .then(response => response.json())
-    .then(spiceBlendObj => {
-        displaySpiceBlendDetail(spiceBlendObj)
-    })
 
-
-fetch(url)
-    .then(response => response.json())
-    .then(spiceBlendArray => {
-        spiceBlendArray.forEach(spiceObject => {
-            const img = document.createElement('img')
-            img.src = spiceObject.image
-            img.alt = spiceObject.title
-            img.dataset.id = spiceObject.id
-
-            spiceImagesDiv.append(img)
+/********************** FETCH FUNCTIONS **********************/
+function getOneSpiceBlend(id) {
+    fetch(`${url}/${id}`)
+        .then(response => response.json())
+        .then(spiceBlendObj => {
+            displaySpiceBlendDetail(spiceBlendObj)
         })
-    })
+}
+
+
+function getAllSpiceBlends() {
+    fetch(url)
+        .then(response => response.json())
+        .then(spiceBlendArray => renderAllSpiceBlends(spiceBlendArray))
+
+}
 
 
 
-
-
-/********************** EVENT LISTENERS **********************/
-
-updateForm.addEventListener('submit', event => {
+/********************** EVENT LISTENERS CALLBACKS **********************/
+const handleUpdateFormSubmit = event => {
     event.preventDefault()
 
     // get the user input
@@ -74,10 +93,10 @@ updateForm.addEventListener('submit', event => {
             detailH2.textContent = updatedSpiceBlendObj.title
         })
 
-})
+}
 
 
-newIngredientForm.addEventListener('submit', event => {
+const handleNewIngredientFormSubmit = event => {
     event.preventDefault()
 
     // get the user input
@@ -100,27 +119,29 @@ newIngredientForm.addEventListener('submit', event => {
             spiceblendId: parseInt(event.target.dataset.id)
         })
     })
-        .then(response => response.json())
-        .then(data => {
-            console.log(data)
-        })
 
-})
+}
 
-spiceImagesDiv.addEventListener('click', event => {
 
+const handleSpiceBlendMenuClick = event => {
     if (event.target.matches('img')) {
         const id = event.target.dataset.id
-        console.log(id)
-
-        fetch(`${url}/${id}`)
-            .then(response => response.json())
-            .then(spiceBlendObject => {
-                displaySpiceBlendDetail(spiceBlendObject)
-            })
-
-
+        getOneSpiceBlend(id)
     }
-})
+}
 
 
+
+/********************** EVENT LISTENERS **********************/
+
+updateForm.addEventListener('submit', handleUpdateFormSubmit)
+
+newIngredientForm.addEventListener('submit', handleNewIngredientFormSubmit)
+
+spiceImagesDiv.addEventListener('click', handleSpiceBlendMenuClick)
+
+
+
+/********************** APP INIT **********************/
+getOneSpiceBlend(1)
+getAllSpiceBlends()

@@ -7,7 +7,7 @@
     },
     {
       "id": 2,
-      "title": "Za'atar",
+      "title": "Yummy Spice Blend",
       "image": "./assets/spices/zaatar.jpg"
     },
     {
@@ -126,6 +126,11 @@
       "name": "Pepper",
       "spiceblendId": 2,
       "id": 21
+    },
+    {
+      "name": "Pork",
+      "spiceblendId": 2,
+      "id": 22
     }
   ]
 }

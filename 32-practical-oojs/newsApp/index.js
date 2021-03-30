@@ -18,44 +18,6 @@ function deleteAd() {
     adCard.remove()
 }
 
-function renderAllCards() {
-    fetch('http://localhost:3000/articles')
-        .then(response => response.json())
-        .then(articles => {
-            articles.forEach(article => {
-                renderOneCard(article)
-            })
-        })
-}
-
-
-function renderOneCard(articleObject) {
-    const outerDiv = document.createElement('div')
-    outerDiv.classList.add('card')
-    outerDiv.dataset.id = articleObject.id
-
-    outerDiv.innerHTML = `
-            <div class="img-container">
-                    <img src="${articleObject.image}"
-                        alt="${articleObject.title}" />
-                    <div class="article-title-container">
-                        <h4>${articleObject.title}</h4>
-                    </div>
-                </div>
-                <div class="content">
-                    <p class='author'>Author: ${articleObject.author}</p>
-                    <div class="scroll">
-                        <p class='description'>${articleObject.description}</p>
-                    </div>
-                    <p class="react-count">${articleObject.likes} likes</p>
-                    <button class="like-button">♥️ Like</button>
-                    <button class='delete-button'>X</button>
-                </div>`
-
-    const collection = document.querySelector('div#collection')
-    collection.append(outerDiv)
-}
-
 
 
 /************** EVENT LISTENERS  **************/
@@ -64,37 +26,7 @@ toggle.addEventListener('click', function () {
 })
 
 
-collectionDiv.addEventListener('click', function (event) {
-    if (event.target.matches('button.like-button')) {
-        const card = event.target.closest('div.card')
-        const likesPtag = event.target.previousElementSibling
-        const likesNum = parseInt(likesPtag.textContent) + 1
-        // optimistic rendering
-        likesPtag.textContent = `${likesNum} Likes`
-
-        fetch(`http://localhost:3000/articles/${card.dataset.id}`, {
-            method: 'PATCH',
-            headers: {
-                'Content-Type': 'application/json',
-                'Accept': 'application/json'
-            },
-            body: JSON.stringify({ likes: likesNum })
-        })
-            .then(response => response.json())
-            .then(data => console.log(data))
-    }
-    else if (event.target.matches('button.delete-button')) {
-        const card = event.target.closest('div.card')
-
-        fetch(`http://localhost:3000/articles/${card.dataset.id}`, {
-            method: 'DELETE'
-        })
-
-        card.remove()
-    }
-})
-
 
 /************** APP INIT **************/
-renderAllCards()
 deleteAd()
+Card.renderAllCards()

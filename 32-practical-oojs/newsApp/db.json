@@ -6,7 +6,7 @@
       "author": "A.J. Perlis",
       "description": "My dog is rude because he kicks down doors when closed and chooses when to listen",
       "image": "images/IMG_4598.jpg",
-      "likes": 41
+      "likes": 84
     },
     {
       "id": 3,
@@ -14,15 +14,7 @@
       "author": "Tim Wit",
       "description": "In a stunning turn of events, a very competent programmer remembers to press the 'unmute' button before speaking on Zoom.",
       "image": "https://images.idgesg.net/images/article/2020/07/zoom-for-home-100852180-large.jpg",
-      "likes": 45
-    },
-    {
-      "title": "Temp",
-      "author": "Raffy",
-      "description": "fdsfadsf",
-      "image": "https://images-na.ssl-images-amazon.com/images/I/51SBsQoWHsL._AC_SX466_.jpg",
-      "likes": 5,
-      "id": 4
+      "likes": 73
     }
   ]
 }
